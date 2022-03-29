@@ -1,0 +1,79 @@
+.dropdown {
+  position: relative;
+  &__button {
+    display: block;
+    width: 100%;
+    text-align: left;
+    background-color: #fff;
+    border: 1px solid #7e9bbd;
+    border-radius: 6px;
+    height: 46px;
+    padding: 13px 35px 13px 20px;
+    cursor: pointer;
+    &:focus {
+      outline: none;
+      box-shadow: 0px 0px 0px 4px rgba(176, 198, 225, 0.6);
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: 15px;
+      transform: translateY(-50%);
+
+      //Рисуем тпеугольник
+      width: 0;
+      height: 0;
+      border-width: 10.4px 6px 0 6px;
+      border-color: #79849b transparent transparent transparent;
+      border-style: solid;
+
+      //Снимаем клик с треугольника
+      pointer-events: none;
+    }
+
+    &--active {
+      outline: none;
+      box-shadow: 0px 0px 0px 4px rgba(176, 198, 225, 0.6);
+    }
+  }
+  &__list {
+    position: absolute;
+    left: 0;
+    top: 52px;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    background-color: #fff;
+    box-shadow: 0px 4px 8px rgba(176, 198, 225, 0.6);
+    overflow: hidden;
+    border-radius: 6px;
+    width: 100%;
+    z-index: 1;
+    display: none;
+    &--visible {
+      display: block;
+    }
+    &-item {
+      margin: 0;
+      padding: 0;
+      border: 1px solid #79849b;
+      padding: 13px 20px;
+      border-bottom: 0;
+      cursor: pointer;
+      &:first-child {
+        border-radius: 6px 6px 0 0;
+      }
+      &:last-child {
+        border-radius: 0 0 6px 6px;
+        border-bottom: 1px solid #7e9bbd;
+      }
+      &:hover {
+        background: rgba(176, 198, 225, 0.26);
+      }
+    }
+  }
+  &__input-hidden {
+    display: none;
+  }
+}
